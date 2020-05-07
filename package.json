@@ -4,6 +4,7 @@
   "description": "A simple library to draw watermark on HTML element with multiple line.",
   "main": "index.js",
   "scripts": {
+    "build": "NODE_ENV=production webpack --profile --display-error-details --hide-modules --progress --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/lizux/watermark/issues"
   },
-  "homepage": "https://github.com/lizux/watermark#readme"
+  "homepage": "https://github.com/lizux/watermark#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.0.0",
+    "eslint": "^6.0.0",
+    "eslint-loader": "^4.0.0",
+    "webpack": "^4.0.0",
+    "webpack-cli": "^3.3.0"
+  }
 }
