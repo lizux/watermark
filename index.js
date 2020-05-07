@@ -4,22 +4,22 @@ let watermark = {};
 let maskObserver = null;
 let invisibleObserver = null;
 
-const removeNode = function(id) {
+const removeNode = (id) => {
     let elem = document.getElementById(id);
     if (elem != null) {
         elem.parentNode.removeChild(elem);
     }
 };
 // Times33 hash
-const hashCode = function(str) {
-    var hash = 5381,
+const hashCode = (str) => {
+    let hash = 5381,
         index = str.length;
     while (index) {
         hash = (hash * 33) ^ str.charCodeAt(--index);
     }
     return hash >>> 0;
 };
-const hashShort = function(str) {
+const hashShort = (str) => {
     return hashCode(str).toString(16);
 };
 
@@ -71,7 +71,7 @@ const setWatermark = (str1, str2, invisible) => {
     return div;
 };
 
-function watchNode(elem, targetId, callback) {
+const watchNode = (elem, targetId, callback) => {
     let parent = elem.parentNode;
     if (!parent) {
         return;
@@ -83,7 +83,7 @@ function watchNode(elem, targetId, callback) {
         attributes: true,
         attributeOldValue: true
     };
-    let observer = new MutationObserver(mutationsList => {
+    let observer = new MutationObserver((mutationsList) => {
         for (let mutation of mutationsList) {
             switch (mutation.type) {
                 case 'childList':
@@ -105,7 +105,7 @@ function watchNode(elem, targetId, callback) {
         }
     });
     observer.observe(parent, config1);
-    let watchSelf = function(node) {
+    let watchSelf = (node) => {
         observer.observe(node, config2);
     };
     watchSelf(elem);
@@ -114,7 +114,7 @@ function watchNode(elem, targetId, callback) {
         observer: observer,
         watch: watchSelf
     };
-}
+};
 
 watermark.set = (str1, str2 = '') => {
     let maskTarget = setWatermark(str1, str2);
