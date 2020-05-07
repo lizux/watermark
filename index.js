@@ -23,34 +23,42 @@ const hashShort = (str) => {
     return hashCode(str).toString(16);
 };
 
-const setWatermark = (str1, str2, invisible) => {
+const setWatermark = ({
+    title = '',
+    subtitle = '',
+    width = 240,
+    height = 180,
+    angle = -20,
+    fontSize = '22px',
+    alpha = 0.08,
+    invisible = false
+}) => {
     let realId = invisible ? invisibleId : maskId;
     removeNode(realId);
 
-    let size = 148;
-    let angle = -30;
+    let str1 = title;
+    let str2 = hashShort(subtitle);
+    let color = `rgba(128, 128, 128, ${alpha})`;
     let zIndex = 10000;
-    let fontSize = '24px Arial';
-    let color = 'rgba(128, 128, 128, 0.1)';
-    str2 = hashShort(str2);
     if (invisible) {
-        size = 120;
-        angle = 30;
-        zIndex = 10001;
-        fontSize = '22px Arial';
-        color = 'rgba(220, 220, 220, 0.05)';
-        str1 = hashShort(str1);
+        str1 = hashShort(title);
         str2 = '';
+        width = 120;
+        height = 120;
+        angle = 30;
+        fontSize = '22px';
+        color = 'rgba(220, 220, 220, 0.05)';
+        zIndex = 10001;
     }
 
     let stage = document.createElement('canvas');
-    stage.width = size;
-    stage.height = size;
+    stage.width = width;
+    stage.height = height;
 
     let ctx = stage.getContext('2d');
     ctx.translate(stage.width / 2, stage.height / 2);
     ctx.rotate((angle * Math.PI) / 180);
-    ctx.font = fontSize;
+    ctx.font = `${fontSize} Arial`;
     ctx.fillStyle = color;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -116,20 +124,21 @@ const watchNode = (elem, targetId, callback) => {
     };
 };
 
-watermark.set = (str1, str2 = '') => {
-    let maskTarget = setWatermark(str1, str2);
-    let invisibleTarget = setWatermark(str1, str2, true);
+watermark.set = (config) => {
+    let maskTarget = setWatermark(config);
+    let invisibleConfig = {...config, invisible: true};
+    let invisibleTarget = setWatermark(invisibleConfig);
     maskObserver = watchNode(maskTarget, maskId, () => {
         let target = document.getElementById(maskId);
         if (!target) {
-            target = setWatermark(str1, str2);
+            target = setWatermark(config);
             maskObserver.watch(target);
         }
     });
     invisibleObserver = watchNode(invisibleTarget, invisibleId, () => {
         let target = document.getElementById(invisibleId);
         if (!target) {
-            target = setWatermark(str1, str2, true);
+            target = setWatermark(invisibleConfig);
             invisibleObserver.watch(target);
         }
     });
