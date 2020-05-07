@@ -10,7 +10,9 @@ module.exports = {
     output: {
         path: BUILD_PATH,
         filename: 'index.js',
-        publicPath: '/'
+        publicPath: '/',
+        libraryTarget: 'umd',
+        library: 'watermark-html'
     },
     module: {
         rules: [
