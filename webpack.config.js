@@ -11,8 +11,9 @@ module.exports = {
         path: BUILD_PATH,
         filename: 'index.js',
         publicPath: '/',
-        libraryTarget: 'umd',
-        library: 'watermark-html'
+        library: 'watermarkHtml',
+        libraryExport: 'default',
+        libraryTarget: 'umd'
     },
     module: {
         rules: [
