@@ -1,7 +1,7 @@
 var path = require('path');
 
 var APP_PATH = path.join(__dirname, 'src');
-var BUILD_PATH = path.join(__dirname, '');
+var BUILD_PATH = path.join(__dirname, 'dist');
 
 module.exports = {
     entry: {

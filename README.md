@@ -1,4 +1,4 @@
-# watermark
+# watermark-html
 
 A simple library to draw watermark on HTML element with multiple line.
 
@@ -12,13 +12,26 @@ $ npm install watermark-html
 
 ## Usage
 
-```
-import Watermark from 'watermark-html';
+### Import
 
-// init
+ES6 module
+
+```javascript
+import Watermark from 'watermark-html';
+```
+
+CommonJS
+
+```javascript
+let Watermark = require('watermark-html');
+```
+
+### Setup
+
+```javascript
 Watermark.set({
-	title: 'some str',
-	subtitle: 'another str',
+	title: 'some text',
+	subtitle: 'another text',
 	width: 240,
 	height: 180,
 	angle: -20,
@@ -32,8 +45,10 @@ Watermark.set({
  @param   {number}    angle     text rotate angle（optional，default -20，value range: [-180, 180]）
  @param   {string}    fontSize  text font size（optional，default '22px'）
  @param   {number}    alpha     text opcity（optional，default 0.08）
+```
 
-// remove
+### Remove
+
+```javascript
 Watermark.remove();
-
 ```
