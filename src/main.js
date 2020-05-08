@@ -37,12 +37,12 @@ const setWatermark = ({
     removeNode(realId);
 
     let str1 = title;
-    let str2 = hashShort(subtitle);
+    let str2 = '';
     let color = `rgba(128, 128, 128, ${alpha})`;
     let zIndex = 10000;
     if (invisible) {
         str1 = hashShort(title);
-        str2 = '';
+        str2 = hashShort(subtitle);
         width = 120;
         height = 120;
         angle = 30;
