@@ -18,18 +18,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.less$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {importLoaders: 1}
-                    },
-                    'postcss-loader',
-                    'less-loader'
-                ]
-            },
-            {
                 test: /\.js$/,
                 include: APP_PATH,
                 use: ['babel-loader']
