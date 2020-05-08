@@ -2,8 +2,6 @@
 
 A simple library to draw watermark on HTML element with multiple line.
 
-
-
 ## Installation
 
 ```
@@ -31,21 +29,19 @@ let Watermark = require('watermark-html');
 ```javascript
 Watermark.set({
 	title: 'some text',
-	subtitle: 'another text',
-	width: 240,
-	height: 180,
-	angle: -20,
-	fontSize: '22px',
-	alpha: 0.08
- }）
- @param   {string}    title     main text
- @param   {string}    subtitle  second text（optional）
- @param   {number}    width     stage width（optional，default 240）
- @param   {number}    height    stage height（optional，default 180）
- @param   {number}    angle     text rotate angle（optional，default -20，value range: [-180, 180]）
- @param   {string}    fontSize  text font size（optional，default '22px'）
- @param   {number}    alpha     text opcity（optional，default 0.08）
+	subtitle: 'another text'
+}）
 ```
+
+| Param    | Type     | Description       | Extra                                           |
+| -------- | -------- | ----------------- | ----------------------------------------------- |
+| title    | {string} | main text         |
+| subtitle | {string} | second text       | optional                                        |
+| width    | {number} | stage width       | optional，default 240                           |
+| height   | {number} | stage height      | optional，default 180                           |
+| angle    | {number} | text rotate angle | optional，default -20，value range: [-180, 180] |
+| fontSize | {string} | text font size    | optional，default '22px'                        |
+| alpha    | {number} | text opcity       | optional，default 0.08，value range: [0.01, 1]  |
 
 ### Remove
 
