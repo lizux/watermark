@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "NODE_ENV=production webpack --profile --display-error-details --hide-modules --progress --config webpack.config.js",
+    "push": "npm version patch & npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
