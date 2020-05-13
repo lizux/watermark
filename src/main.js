@@ -47,7 +47,7 @@ const setWatermark = ({
         height = 120;
         angle = 30;
         fontSize = '22px';
-        color = 'rgba(128, 128, 128, 0.005)';
+        color = 'rgba(128, 128, 128, 0.008)';
         zIndex = 10001;
     }
 
