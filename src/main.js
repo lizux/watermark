@@ -30,7 +30,7 @@ const setWatermark = ({
     height = 180,
     angle = -20,
     fontSize = '22px',
-    alpha = 0.08,
+    alpha = 0.2,
     invisible = false
 }) => {
     let realId = invisible ? invisibleId : maskId;
@@ -47,7 +47,7 @@ const setWatermark = ({
         height = 120;
         angle = 30;
         fontSize = '22px';
-        color = 'rgba(128, 128, 128, 0.008)';
+        color = 'rgba(128, 128, 128, 0.016)';
         zIndex = 10001;
     }
 
@@ -74,6 +74,7 @@ const setWatermark = ({
     div.style.zIndex = zIndex;
     div.style.width = '100%';
     div.style.height = '100%';
+    div.style.opacity = 0.5;
     div.style.background = 'url(' + stage.toDataURL('image/png') + ')';
     document.body.appendChild(div);
     return div;

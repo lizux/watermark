@@ -41,7 +41,7 @@ Watermark.set({
 | height   | {number} | stage height      | optional，default 180                           |
 | angle    | {number} | text rotate angle | optional，default -20，value range: [-180, 180] |
 | fontSize | {string} | text font size    | optional，default '22px'                        |
-| alpha    | {number} | text opcity       | optional，default 0.08，value range: [0.01, 1]  |
+| alpha    | {number} | text opcity       | optional，default 0.2，value range: [0.01, 1]  |
 
 ### Remove
 
