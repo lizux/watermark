@@ -96,23 +96,30 @@ const watchNode = (elem, targetId, callback) => {
         for (let mutation of mutationsList) {
             switch (mutation.type) {
                 case 'childList':
-                    for (const node of mutation.removedNodes) {
-                        if (node.id === targetId) {
-                            callback();
+                    if (mutation.target === document.body) {
+                        for (const node of mutation.removedNodes) {
+                            if (node.id === targetId) {
+                                callback();
+                            }
+                        }
+                    } else if (mutation.target === document.documentElement) {
+                        for (const node of mutation.addedNodes) {
+                            if (node !== document.body) {
+                                document.body.appendChild(node);
+                            }
                         }
                     }
                     break;
                 case 'attributes':
-                    if (mutation.attributeName === 'id' || mutation.attributeName === 'style') {
-                        removeNode(mutation.target.id);
-                        callback();
-                    }
+                    removeNode(mutation.target.id);
+                    callback();
                     break;
                 default:
                     break;
             }
         }
     });
+    observer.observe(document.documentElement, config1);
     observer.observe(parent, config1);
     let watchSelf = (node) => {
         observer.observe(node, config2);
