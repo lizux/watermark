@@ -36,7 +36,7 @@ Watermark.set({
 | Param    | Type     | Description       | Extra                                           |
 | -------- | -------- | ----------------- | ----------------------------------------------- |
 | title    | {string} | main text         |
-| subtitle | {string} | second text       | optional                                        |
+| subtitle | {string} | second text       |
 | width    | {number} | stage width       | optional，default 240                           |
 | height   | {number} | stage height      | optional，default 180                           |
 | angle    | {number} | text rotate angle | optional，default -20，value range: [-180, 180] |
