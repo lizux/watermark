@@ -1,6 +1,6 @@
 {
   "name": "watermark-html",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A simple library to draw watermark on HTML element with multiple line.",
   "main": "dist/index.js",
   "files": [
