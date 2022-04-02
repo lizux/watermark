@@ -141,6 +141,8 @@ watermark.set = (config) => {
         if (!target) {
             target = setWatermark(config);
             maskObserver.watch(target);
+        } else if (target.parentNode !== document.body) {
+            document.body.appendChild(target);
         }
     });
     invisibleObserver = watchNode(invisibleTarget, invisibleId, () => {
@@ -148,6 +150,8 @@ watermark.set = (config) => {
         if (!target) {
             target = setWatermark(invisibleConfig);
             invisibleObserver.watch(target);
+        } else if (target.parentNode !== document.body) {
+            document.body.appendChild(target);
         }
     });
 };
