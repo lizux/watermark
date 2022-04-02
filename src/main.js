@@ -85,13 +85,6 @@ const watchNode = (elem, targetId, callback) => {
     if (!parent) {
         return;
     }
-    let config1 = {
-        childList: true
-    };
-    let config2 = {
-        attributes: true,
-        attributeOldValue: true
-    };
     let observer = new MutationObserver((mutationsList) => {
         for (let mutation of mutationsList) {
             switch (mutation.type) {
@@ -100,12 +93,6 @@ const watchNode = (elem, targetId, callback) => {
                         for (const node of mutation.removedNodes) {
                             if (node.id === targetId) {
                                 callback();
-                            }
-                        }
-                    } else if (mutation.target === document.documentElement) {
-                        for (const node of mutation.addedNodes) {
-                            if (node !== document.body) {
-                                document.body.appendChild(node);
                             }
                         }
                     }
@@ -119,10 +106,9 @@ const watchNode = (elem, targetId, callback) => {
             }
         }
     });
-    observer.observe(document.documentElement, config1);
-    observer.observe(parent, config1);
+    observer.observe(parent, {childList: true});
     let watchSelf = (node) => {
-        observer.observe(node, config2);
+        observer.observe(node, {attributes: true, attributeOldValue: true});
     };
     watchSelf(elem);
 
