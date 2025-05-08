@@ -23,16 +23,7 @@ const hashShort = (str) => {
     return hashCode(str).toString(16);
 };
 
-const setWatermark = ({
-    title = '',
-    subtitle = '',
-    width = 240,
-    height = 180,
-    angle = -20,
-    fontSize = '22px',
-    alpha = 0.2,
-    invisible = false
-}) => {
+const setWatermark = ({title = '', subtitle = '', width = 240, height = 180, angle = -20, fontSize = '22px', alpha = 0.2, invisible = false}) => {
     let realId = invisible ? invisibleId : maskId;
     removeNode(realId);
 
