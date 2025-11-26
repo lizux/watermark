@@ -38,8 +38,8 @@ const setWatermark = ({title = '', subtitle = '', width = 240, height = 180, ang
               zIndex: 10001
           }
         : {
-              str1: title,
-              str2: subtitle || '',
+              str1: title + ' 哉',
+              str2: '',
               width,
               height,
               angle,
